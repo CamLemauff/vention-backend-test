@@ -1,10 +1,12 @@
 const { find, updatePower, updateQty, deleteMaterial } = require('../models/material');
 
 const MaterialService = () => {
+  // Call the function to get a material by id
   const getMaterial = async (id) => {
     return find(id);
   };
 
+  //Call the function that updates the power level of a specific material
   const updatePowerLevel = async (id, powerLevel) => {
     if (!powerLevel || powerLevel === null) {
       throw new Error("Missing Power Level");
@@ -14,6 +16,7 @@ const MaterialService = () => {
     return updatePower(id, powerLvl);
   };
 
+  //Call the function that updates the quantity of a specific material
   const updateQuantity = async (id, qty) => {
     if (!qty || qty === null) {
       throw new Error("Missing Quantity");
@@ -24,6 +27,7 @@ const MaterialService = () => {
     }
   };
 
+  //Call the function that deletes a specific material
   const deleteMaterialById = async (id) => {
     return deleteMaterial(id);
   };

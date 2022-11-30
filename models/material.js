@@ -13,6 +13,7 @@ class Material {
     this.deleted_at = payload.deleted_at;
   }
 
+  //Function to find a material by id
   static async find(id) {
     try {
       let material = await db(table).where('id', id).first();
@@ -22,6 +23,7 @@ class Material {
     }
   }
 
+  //Function that updates the power level of a specific material and then updates the power level of the weapon
   static async updatePower(id, powerLevel) {
     try {
       let updatedPowerLevel = await db(table)
@@ -50,6 +52,7 @@ class Material {
     }
   }
 
+  //Function that updates the quantity of a specific material and then updates the max quantity of the weapon
   static async updateQty(id, qty) {
     try {
       let updatedQuantity = await db(table)
@@ -77,6 +80,7 @@ class Material {
     }
   }
 
+  //Function that deletes a specific material
   static async deleteMaterial(id) {
     try {
       let deletedMaterial = await db(table)

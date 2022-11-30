@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const MaterialService = require("../services/materialService.js");
 
+//GET request to get a material by id
 router.get("/:id", async (req, res) => {
   try {
     const material = await MaterialService().getMaterial(req.params.id);
@@ -11,6 +12,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//POST request to update the power level of a specific material
 router.post("/powerLevel/:id/:power", async (req, res) => {
   try {
     const { id, power } = req.params;
@@ -21,6 +23,7 @@ router.post("/powerLevel/:id/:power", async (req, res) => {
   }
 });
 
+//POST request to update the quantity of a specific material
 router.post("/quantity/:id/:qty", async (req, res) => {
   try {
     const { id, qty } = req.params;
@@ -31,6 +34,7 @@ router.post("/quantity/:id/:qty", async (req, res) => {
   }
 });
 
+//DELETE request to delete a specific material
 router.delete("/:id", async (req, res) => {
   try {
     const response = await MaterialService().deleteMaterialById(req.params.id);
